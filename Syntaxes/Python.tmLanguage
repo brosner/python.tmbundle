@@ -172,7 +172,7 @@
 			<key>comment</key>
 			<string>keywords that haven't fit into other groups (yet).</string>
 			<key>match</key>
-			<string>\b(as|assert|del|exec|print)\b</string>
+			<string>\b(as|assert|del|exec)\b</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -1142,7 +1142,7 @@
                 __import__|all|abs|any|apply|callable|chr|cmp|coerce|compile|delattr|dir|
                 divmod|eval|execfile|filter|getattr|globals|hasattr|hash|hex|id|
                 input|intern|isinstance|issubclass|iter|len|locals|map|max|min|oct|
-                ord|pow|range|raw_input|reduce|reload|repr|round|setattr|sorted|
+                ord|pow|print|range|raw_input|reduce|reload|repr|round|setattr|sorted|
                 sum|unichr|vars|zip
 			)\b</string>
 			<key>name</key>
@@ -1444,7 +1444,7 @@
 		<key>illegal_names</key>
 		<dict>
 			<key>match</key>
-			<string>\b(and|as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|not|or|pass|print|raise|return|try|while|with|yield)\b</string>
+			<string>\b(and|as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|not|or|pass|raise|return|try|while|with|yield)\b</string>
 			<key>name</key>
 			<string>invalid.illegal.name.python</string>
 		</dict>
