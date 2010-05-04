@@ -1152,9 +1152,9 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)\b(
-				basestring|bool|buffer|classmethod|complex|dict|enumerate|file|
-				float|frozenset|int|list|long|object|open|property|reversed|set|
-				slice|staticmethod|str|super|tuple|type|unicode|xrange
+				basestring|bool|buffer|bytes|classmethod|complex|dict|enumerate|
+				file|float|frozenset|int|list|long|object|open|property|reversed|
+				set|slice|staticmethod|str|super|tuple|type|unicode|xrange
 			)\b</string>
 			<key>name</key>
 			<string>support.type.python</string>
@@ -1662,6 +1662,53 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(b)(""")</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.string.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.python</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>double quoted byte string</string>
+					<key>end</key>
+					<string>((?&lt;=""")(")""|""")</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.empty-string.double.python</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.double.block.byte-string.python</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#constant_placeholder</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#escaped_char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(r)(""")</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -1918,6 +1965,58 @@
 						<dict>
 							<key>include</key>
 							<string>#escaped_unicode_char</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#escaped_char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(b)(")</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.string.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.python</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>double-quoted byte string</string>
+					<key>end</key>
+					<string>((?&lt;=")(")|")|(\n)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.empty-string.double.python</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.unclosed-string.python</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.double.single-line.byte-string.python</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#constant_placeholder</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -2413,6 +2512,53 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(b)(''')</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.string.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.python</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>single quoted byte string</string>
+					<key>end</key>
+					<string>((?&lt;=''')(')''|''')</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.empty-string.single.python</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.single.block.byte-string.python</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#constant_placeholder</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#escaped_char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(r)(''')</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -2659,6 +2805,53 @@
 						<dict>
 							<key>include</key>
 							<string>#escaped_unicode_char</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#escaped_char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(b)(')</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.string.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.python</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>single quoted byte string</string>
+					<key>end</key>
+					<string>(')|(\n)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.python</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.unclosed-string.python</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.single.single-line.byte-string.python</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#constant_placeholder</string>
 						</dict>
 						<dict>
 							<key>include</key>
